@@ -1,0 +1,1 @@
+{"name":"ajaia-gowrisankar","main":"dist/server/index.js","compatibility_date":"2026-11-10","compatibility_flags":["nodejs_compat"],"observability":{"enabled":true},"d1_databases":[{"binding":"DB","database_name":"ajaia-gowrisankar","database_id":"00000000-0000-4000-8000-000000000000","migrations_dir":"drizzle"}]}

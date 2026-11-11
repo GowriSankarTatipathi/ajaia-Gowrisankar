@@ -1,0 +1,10 @@
+.DS_Store
+~$*
+node_modules/
+.wrangler/
+dist/
+.vercel/
+.dev.vars
+.env
+.env.local
+backend/worker/assets.js

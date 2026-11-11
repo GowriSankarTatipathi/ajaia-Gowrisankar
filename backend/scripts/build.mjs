@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+import {build} from 'esbuild';
+const assets={};
+for(const [route,file,type] of [['/','index.html','text/html'],['/app.js','app.js','text/javascript'],['/style.css','style.css','text/css']]) assets[route]={body:await readFile(`static/${file}`,'utf8'),type};
+await writeFile('worker/assets.js','export default '+JSON.stringify(assets)+';\n');
+await mkdir('dist/server',{recursive:true});
+await mkdir('dist/.openai',{recursive:true});
+await build({entryPoints:['worker/index.js'],outfile:'dist/server/index.js',bundle:true,format:'esm',platform:'browser',target:'es2022'});
+await cp('.openai/hosting.json','dist/.openai/hosting.json');
+console.log('Built ajaia-Gowrisankar Worker and embedded browser assets.');
